@@ -1,0 +1,3 @@
+import { useState } from 'react';
+const notes=['今天不必把所有事情都想明白。','暂时说不清，也可以先记下来。','你可以慢一点，也可以换一种方式。','不需要马上变好，此刻的感受也值得被认真对待。'];
+export default function HealingNote(){const[open,setOpen]=useState(false);const[index,setIndex]=useState(0);return <aside className={`healing-note ${open?'open':''}`}><button className="note-tab" onClick={()=>setOpen(!open)} aria-expanded={open}><i/>给自己一句话</button>{open&&<div className="note-paper"><button className="note-close" onClick={()=>setOpen(false)} aria-label="关闭小笺">×</button><span>此刻小笺</span><p>{notes[index]}</p><button className="note-next" onClick={()=>setIndex((index+1)%notes.length)}>换一句 ↻</button></div>}</aside>}
